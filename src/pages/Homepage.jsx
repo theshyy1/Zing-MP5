@@ -5,19 +5,26 @@ import img3 from "../assets/img3.jpg";
 import ImageItem from "../components/imageItem";
 import AlbumItem from "../components/album-item";
 import SongRecomnended from "../components/song-recomend";
+import LastRelease from "../components/last-release";
+import AlbumRecomended from "../components/album-recomended";
+import {
+  albumRecently,
+  albumsRecomended,
+  songsLastRelease,
+  songsRecomended,
+} from "../data";
 
 const imgList = [img1, img2, img3];
 
 const Homepage = () => {
   return (
     <div>
-      {/* Recently */}
       <div className="grid grid-cols-3 gap-5 py-8">
         {imgList.map((img, index) => (
           <ImageItem img={img} key={index} />
         ))}
       </div>
-      {/* ALbum */}
+      {/* Recently */}
       <div className="overflow-hidden">
         <section className="mb-5 flex justify-between items-center">
           <h3 className="text-xl font-bold text-white-color">Gần Đây</h3>
@@ -26,12 +33,10 @@ const Homepage = () => {
             <i className="fa-solid fa-chevron-right"></i>
           </p>
         </section>
-        <section className="flex justify-start space-x-8">
-          {Array(10)
-            .fill(0)
-            .map((ab, index) => (
-              <AlbumItem key={index} />
-            ))}
+        <section className="flex justify-start space-x-7">
+          {albumRecently.map((ab, index) => (
+            <AlbumItem item={ab} key={index} />
+          ))}
         </section>
       </div>
       {/* Recomendation songs */}
@@ -43,22 +48,33 @@ const Homepage = () => {
           </h3>
         </div>
         <div className="grid grid-cols-3 gap-2 h-[240px] overflow-hidden">
-          {Array(8)
-            .fill(0)
-            .map((song, index) => (
-              <SongRecomnended key={index} />
-            ))}
+          {songsRecomended.map((song, index) => (
+            <SongRecomnended song={song} key={index} />
+          ))}
+        </div>
+      </div>
+      {/* ALbum */}
+      <div className="mt-12">
+        <div className="">
+          <h3 className="text-xl font-bold mb-5 text-white-color">
+            Có Thể Bạn Muốn Nghe
+          </h3>
+        </div>
+        <div className="grid grid-cols-5 gap-2 overflow-hidden">
+          {albumsRecomended.map((al, index) => (
+            <AlbumRecomended album={al} key={index} />
+          ))}
         </div>
       </div>
 
       {/* Moi Phat Hanh */}
-      <div className="mt-12 text-white-color">
-        <div className="">
+      <div className="mt-12 text-white-color mb-4">
+        <div className="mb-5">
           <h3 className="text-xl font-bold mb-4">Mới Phát Hành</h3>
         </div>
-        <div className="">
+        <div className="flex justify-between items-center mb-4">
           <ul className="flex space-x-5">
-            <li className="w-[107px] text-center text-sm border-[1px] border-btn-color rounded-full">
+            <li className="w-[107px] text-center text-sm border-[1px] border-btn-color rounded-full bg-btn-color">
               Tất cả
             </li>
             <li className="w-[107px] text-center text-sm border-[1px] border-btn-color rounded-full">
@@ -68,7 +84,15 @@ const Homepage = () => {
               Quốc Tế
             </li>
           </ul>
-          <p></p>
+          <p className="text-gray-color space-x-2">
+            <span>Tất cả</span>
+            <i className="fa-solid fa-chevron-right"></i>
+          </p>
+        </div>
+        <div className="grid grid-cols-3 gap-2 h-[240px] overflow-hidden">
+          {songsLastRelease.map((song, index) => (
+            <LastRelease song={song} key={index} />
+          ))}
         </div>
       </div>
     </div>

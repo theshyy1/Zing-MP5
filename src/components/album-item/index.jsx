@@ -1,14 +1,10 @@
 import React from "react";
 
-const AlbumItem = () => {
+const AlbumItem = ({ item: { name, avatar } }) => {
   return (
-    <div className="max-w-[130px] space-y-2 ">
-      <img
-        src="https://picsum.photos/130/130"
-        className="max-w-[130px] rounded-lg"
-        alt=""
-      />
-      <p className="text-white-color text-sm">Kiếm thế soundtrack</p>
+    <div className="max-w-[130px] space-y-2">
+      <img src={avatar} className="max-w-[130px] rounded-lg " alt="" />
+      <p className="text-white-color text-sm">{name}</p>
     </div>
   );
 };

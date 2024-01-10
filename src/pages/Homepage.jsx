@@ -29,7 +29,7 @@ const Homepage = () => {
         <section className="mb-5 flex justify-between items-center">
           <h3 className="text-xl font-bold text-white-color">Gần Đây</h3>
           <p className="text-gray-color space-x-2">
-            <span>Tất cả</span>
+            <span className=" cursor-pointer">Tất cả</span>
             <i className="fa-solid fa-chevron-right"></i>
           </p>
         </section>
@@ -85,7 +85,7 @@ const Homepage = () => {
             </li>
           </ul>
           <p className="text-gray-color space-x-2">
-            <span className="">Tất cả</span>
+            <span className=" cursor-pointer">Tất cả</span>
             <i className="fa-solid fa-chevron-right"></i>
           </p>
         </div>

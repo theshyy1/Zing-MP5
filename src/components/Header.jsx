@@ -28,7 +28,12 @@ const Header = () => {
           <span>Tải bản macOS</span>
         </div>
         <ButtonIcon>
-          <i className="fa-solid fa-gear"></i>
+          <p className="relative group">
+            <i className="fa-solid fa-gear"></i>
+            <span className="w-[60px] h-7 leading-7 text-white-color rounded absolute top-[110%] right-[-24%] text-[10px] bg-gray-color opacity-0 group-hover:opacity-100 z-5">
+              Cài đặt
+            </span>
+          </p>
         </ButtonIcon>
         <ButtonIcon>
           <i className="fa-solid fa-user"></i>

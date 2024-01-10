@@ -5,7 +5,7 @@ const ButtonIcon = ({ children, text }) => {
     <div
       className={`${
         text
-          ? "flex items-center p-3 ml-3 gap-2 text-white-color"
+          ? "flex items-center p-2 m-5 gap-2 text-white-color"
           : "flex items-center text-white-color"
       }`}
     >

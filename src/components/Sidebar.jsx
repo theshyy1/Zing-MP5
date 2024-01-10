@@ -54,16 +54,16 @@ const Sidebar = () => {
             </g>
           </svg>
         </div>
-        <div className="border-b-[1px] mx-1">
+        <div className="border-b-[1px] border-gray-500 mx-1">
           <SideBarMenu />
         </div>
-        <div className="mx-1 h-[300px] overflow-y-scroll overflow-x-hidden">
+        <div className="mx-1 h-[250px] overflow-y-scroll overflow-x-hidden">
           <MenuPersonal />
           <div className="m-4">
             <img src="https://static-zmp3.zmdcdn.me/images/best-of-2023/promote.png" />
           </div>
           <div className="m-4 p-1 bg-[#9b4de0] rounded-2xl flex justify-center flex-col">
-            <p className="p-3 text-center w-full text-white-color">
+            <p className="py-2 px-3 text-center w-full text-white-color">
               Đăng nhập để khám phá playlist dành riêng cho bạn
             </p>
             <button className="border-2 pb-2 mb-3 rounded-2xl w-[50%] mx-auto text-white-color hover:bg-[#a24eec]">

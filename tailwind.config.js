@@ -13,6 +13,7 @@ export default {
         "white-color": "#fff",
         "gray-color": "#8c8791",
         "btn-color": "#302639",
+        
       },
     },
   },

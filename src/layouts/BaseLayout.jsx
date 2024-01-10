@@ -10,7 +10,7 @@ const BaseLayout = ({ children }) => {
         <Sidebar />
       </div>
       <div className="w-4/5 bg-purple-bold">
-        <div className="container">
+        <div className="container h-screen overflow-auto">
           <Header />
           <Outlet />
         </div>

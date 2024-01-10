@@ -94,6 +94,7 @@ export const albumsRecomended = [
         artis: "Hương Ly, Zombie",
         avatar: "https://picsum.photos/131/130",
         timeplay: "03:15",
+        album: "Huong Ly version 1",
       },
       {
         id: 5,

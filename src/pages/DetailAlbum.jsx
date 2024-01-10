@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { albumsRecomended } from "../data";
 import ButtonIcon from "../components/button-icon";
+import SongAlbumItem from "../components/album-recomended/song-item";
 
 const DetailAlbum = () => {
   const { id } = useParams();
@@ -42,36 +43,22 @@ const DetailAlbum = () => {
         <h4>
           <span>Lời tựa</span> Tôn vinh những cây đại thụ trong làng rap Việt
         </h4>
-        <div className="flex justify-between items-center mt-3">
-          <div className="flex space-x-4 items-center">
-            <i className="fa-solid fa-music"></i>
-            <img
-              src="https://picsum.photos/40/40"
-              className="object-contain rounded"
-              alt=""
-            />
-            <div className="">
-              <h3 className="text-sm">Nói với em</h3>
-              <p className="text-[12px] text-gray-color">Bigdaddy</p>
-            </div>
-          </div>
-          <span className="text-[12px] text-gray-color">03:15</span>
-        </div>
-        <div className="flex justify-between items-center mt-3">
-          <div className="flex space-x-4 items-center">
-            <i className="fa-solid fa-music"></i>
-            <img
-              src="https://picsum.photos/40/40"
-              className="object-contain rounded"
-              alt=""
-            />
-            <div className="">
-              <h3 className="text-sm">Nói với em</h3>
-              <p className="text-[12px] text-gray-color">Bigdaddy</p>
-            </div>
-          </div>
-          <span className="text-[12px] text-gray-color">03:15</span>
-        </div>
+        <table className="w-full text-left">
+          <thead>
+            <tr className="flex justify-between items-center text-[12px] text-gray-color">
+              <th className="w-3/5">
+                <i className="fa-solid fa-arrow-up-wide-short mr-2"></i>BÀI HÁT
+              </th>
+              <th className="w-1/5">ALBUM</th>
+              <th className="w-1/5">THỜI GIAN</th>
+            </tr>
+          </thead>
+          <tbody>
+            {currentAlbum.songs.map((song, index) => (
+              <SongAlbumItem song={song} key={index} />
+            ))}
+          </tbody>
+        </table>
       </main>
     </div>
   );

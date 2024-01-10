@@ -85,7 +85,7 @@ const Homepage = () => {
             </li>
           </ul>
           <p className="text-gray-color space-x-2">
-            <span>Tất cả</span>
+            <span className="">Tất cả</span>
             <i className="fa-solid fa-chevron-right"></i>
           </p>
         </div>

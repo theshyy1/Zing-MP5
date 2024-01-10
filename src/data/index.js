@@ -87,6 +87,36 @@ export const albumsRecomended = [
     title: "Rap Việt Cũ Mà Hay",
     artis: "Rhymastic, LK, Yanbi...",
     avatar: "https://picsum.photos/194/193",
+    songs: [
+      {
+        id: 4,
+        name: "Khuê Mộc Lan",
+        artis: "Hương Ly, Zombie",
+        avatar: "https://picsum.photos/131/130",
+        timeplay: "03:15",
+      },
+      {
+        id: 5,
+        name: "K (Part 2)",
+        artis: "Justatee",
+        avatar: "https://picsum.photos/130/129",
+        timeplay: "03:51",
+      },
+      {
+        id: 6,
+        name: "Khi anh bối rối",
+        artis: "Lynk Lee",
+        avatar: "https://picsum.photos/129/130",
+        timeplay: "04:10",
+      },
+      {
+        id: 7,
+        name: "Ngày Chung Đôi",
+        artis: "Văn Mai Hương",
+        avatar: "https://picsum.photos/129/129",
+        timeplay: "04:13",
+      },
+    ],
   },
   {
     id: 2,

@@ -1,6 +1,7 @@
 import React from "react";
 import SideBarMenu from "./sidebar-menu";
 import ButtonIcon from "./button-icon";
+import MenuPersonal from "./menu-personal";
 
 const Sidebar = () => {
   return (
@@ -57,7 +58,7 @@ const Sidebar = () => {
           <SideBarMenu />
         </div>
         <div className="mx-1 h-[300px] overflow-y-scroll overflow-x-hidden">
-          <SideBarMenu />
+          <MenuPersonal />
           <div className="m-4">
             <img src="https://static-zmp3.zmdcdn.me/images/best-of-2023/promote.png" />
           </div>

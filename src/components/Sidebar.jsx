@@ -53,10 +53,10 @@ const Sidebar = () => {
             </g>
           </svg>
         </div>
-        <div className="border-b-[1px] mx-1">
+        <div className="border-b-[1px] border-gray-color mx-1 pb-3">
           <SideBarMenu />
         </div>
-        <div className="mx-1 h-[300px] overflow-y-scroll overflow-x-hidden">
+        <div className="mx-1 h-[300px] pt-3 overflow-y-scroll overflow-x-hidden">
           <SideBarMenu />
           <div className="m-4">
             <img src="https://static-zmp3.zmdcdn.me/images/best-of-2023/promote.png" />
@@ -71,9 +71,11 @@ const Sidebar = () => {
           </div>
         </div>
 
-        <ButtonIcon text="Tạo playlist mới">
-          <i className="fa-solid fa-plus"></i>
-        </ButtonIcon>
+        <div className="fixed bottom-[90px] left-0 mt-[100px] bg-purple-bold w-[237px]">
+          <ButtonIcon text="Tạo playlist mới">
+            <i className="fa-solid fa-plus"></i>
+          </ButtonIcon>
+        </div>
       </div>
     </>
   );

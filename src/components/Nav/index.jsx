@@ -1,11 +1,10 @@
 const Nav = ({ text, icon }) => {
   return (
-    <li className="flex gap-5 items-center text-white hover:bg-gray-color py-5 pl-8  hover:border-l-4 border-[#9b4de0] ">
-      <div>
+    <li className="flex items-center text-white hover:bg-gray-color py-3 pl-8  border-[#9b4de0] ">
+      <span className="mr-3">
         <i className={icon + " text-xl"}></i>
-        {""}
-      </div>
-      <p className="text-[14px] font-medium">{text}</p>
+      </span>
+      <p className="text-[14px] font-sm">{text}</p>
     </li>
   );
 };

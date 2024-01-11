@@ -1,3 +1,6 @@
+import gocuatraitim from "../assets/Music/Go-Cua-Trai-Tim-Mai-Thien-Van-Quang-Le.mp3";
+import ngayxuaemden from "../assets/Music/Ngay-Xua-Em-Den-Anh-Khang.mp3";
+
 export const albumRecently = [
   {
     id: 1,
@@ -39,15 +42,17 @@ export const albumRecently = [
 export const songsRecomended = [
   {
     id: 1,
-    name: "Chưa bao giờ",
-    artis: "Trung quân idol",
+    name: "Ngày xưa em đến",
+    artis: "Anh Khang",
     avatar: "https://picsum.photos/130/130",
+    path: ngayxuaemden,
   },
   {
     id: 2,
-    name: "Liên khúc nhớ nhau hoài",
+    name: "Gõ cửa trái tim",
     artis: "Quang Lê, Mai Thiên Vân",
     avatar: "https://picsum.photos/130/131",
+    path: gocuatraitim,
   },
   {
     id: 3,

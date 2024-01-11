@@ -1,6 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import song1 from "../assets/Music/tiengphaogiaothua.mp3";
-import imageSong from "../assets/Image/avatar-song.jpg";
 import { useSelector, useDispatch } from "react-redux";
 
 const PlayMusic = () => {
@@ -12,17 +10,23 @@ const PlayMusic = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isMuted, setMuted] = useState(false);
+  const [isRepeat, setRepeat] = useState(false);
+
+  const [index, setIndex] = useState(0);
   const [currentSong, setCurrentSong] = useState({});
+  // const listSongs = useSelector((state) => state.music.stackSongs);
   const music = useSelector((state) => state.music.currentSong);
-  // const currentSong = music;
 
   useEffect(() => {
     setCurrentSong(music);
     const audio = audioRef.current;
 
     const handleTimeUpdate = (e) => {
-      if (isPlaying) {
+      if (audio.duration) {
         const newProgress = (audio.currentTime / audio.duration) * 100;
+        if (newProgress === 100) {
+          setPlaying(false);
+        }
         setProgress(newProgress);
         setCurrentTime(audio.currentTime);
       }
@@ -34,22 +38,15 @@ const PlayMusic = () => {
         audio.play();
       }
     };
-    const handleSongChange = () => {
-      if (isPlaying) {
-        audio.play();
-      }
-    };
 
     audio.addEventListener("timeupdate", handleTimeUpdate);
     audio.addEventListener("loadedmetadata", handleLoadedMetadata);
-    audio.addEventListener("ended", handleSongChange);
 
     return () => {
       audio.removeEventListener("timeupdate", handleTimeUpdate);
       audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
-      audio.removeEventListener("ended", handleSongChange);
     };
-  }, [currentSong, isPlaying]);
+  }, [currentSong, isPlaying, music, index]);
 
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
@@ -73,6 +70,13 @@ const PlayMusic = () => {
     const newTime = (newProgress / 100) * audio.duration;
     audio.currentTime = newTime;
     setProgress(newProgress);
+  };
+
+  const handleRepeat = () => {
+    const audio = audioRef.current;
+
+    audio.loop === true ? (audio.loop = false) : (audio.loop = true);
+    setRepeat(!isRepeat);
   };
 
   const handleVolumeChange = (e) => {
@@ -121,7 +125,9 @@ const PlayMusic = () => {
         <section className="">
           <div className="flex justify-around items-center">
             <i className="fa-solid fa-shuffle"></i>
-            <i className="fa-solid fa-backward-step"></i>
+            <span onClick={() => setIndex((p) => p - 1)}>
+              <i className="fa-solid fa-backward-step"></i>
+            </span>
             <span
               onClick={handlePlay}
               className="text-xl flex items-center justify-center h-10 w-10 rounded-full border-[1px] border-white-color hover:opacity-60"
@@ -132,8 +138,19 @@ const PlayMusic = () => {
                 <i className="fa-solid fa-play"></i>
               )}
             </span>
-            <i className="fa-solid fa-forward-step"></i>
-            <i className="fa-solid fa-repeat"></i>
+            <span onClick={() => setIndex((p) => p + 1)}>
+              <i className="fa-solid fa-forward-step"></i>
+            </span>
+            <span>
+              {isRepeat ? (
+                <i
+                  className="fa-solid fa-repeat text-red-600"
+                  onClick={handleRepeat}
+                ></i>
+              ) : (
+                <i className="fa-solid fa-repeat" onClick={handleRepeat}></i>
+              )}
+            </span>
           </div>
           <div className="mt-2 flex items-between space-x-3 w-[500px]">
             <span>{formatTime(currentTime)}</span>
@@ -152,7 +169,7 @@ const PlayMusic = () => {
         </section>
         <section className="flex items-center space-x-3 mr-4">
           <span className="hover:opacity-60 w-5" onClick={toggleMute}>
-            {isMuted === true ? (
+            {isMuted === true || volume <= 0 ? (
               <i className="fa-solid fa-volume-xmark"></i>
             ) : volume > 0.5 ? (
               <i className="fa-solid fa-volume-high"></i>

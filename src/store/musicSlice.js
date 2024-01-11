@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { songsRecomended } from "../data";
 
 const initialState = {
   currentSong: null,
+  stackSongs: songsRecomended,
 };
 
 export const musicSlice = createSlice({
@@ -11,9 +13,12 @@ export const musicSlice = createSlice({
     getSong: (state, action) => {
       state.currentSong = action.payload;
     },
+    addToStack: (state, action) => {
+      state.stackSongs.push(action.payload);
+    },
   },
 });
 
-export const { getSong } = musicSlice.actions;
+export const { getSong, addToStack } = musicSlice.actions;
 
 export default musicSlice.reducer;

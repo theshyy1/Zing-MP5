@@ -12,9 +12,12 @@ const PlayMusic = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isMuted, setMuted] = useState(false);
+  const [currentSong, setCurrentSong] = useState({});
   const music = useSelector((state) => state.music.currentSong);
-  const currentSong = music;
+  // const currentSong = music;
+
   useEffect(() => {
+    setCurrentSong(music);
     const audio = audioRef.current;
 
     const handleTimeUpdate = (e) => {

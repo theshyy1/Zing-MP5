@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import song1 from "../assets/Music/tiengphaogiaothua.mp3";
+import imageSong from "../assets/Image/avatar-song.jpg";
+import { useSelector, useDispatch } from "react-redux";
 
 const PlayMusic = () => {
   const audioRef = useRef(null);
@@ -10,13 +12,8 @@ const PlayMusic = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isMuted, setMuted] = useState(false);
-
-  const currentSong = {
-    name: "Tiếng pháo giao thừa",
-    artis: "V.A",
-    path: song1,
-  };
-
+  const music = useSelector((state) => state.music.currentSong);
+  const currentSong = music;
   useEffect(() => {
     const audio = audioRef.current;
 
@@ -30,14 +27,24 @@ const PlayMusic = () => {
 
     const handleLoadedMetadata = () => {
       setDuration(audio.duration);
+      if (isPlaying) {
+        audio.play();
+      }
+    };
+    const handleSongChange = () => {
+      if (isPlaying) {
+        audio.play();
+      }
     };
 
     audio.addEventListener("timeupdate", handleTimeUpdate);
     audio.addEventListener("loadedmetadata", handleLoadedMetadata);
+    audio.addEventListener("ended", handleSongChange);
 
     return () => {
       audio.removeEventListener("timeupdate", handleTimeUpdate);
       audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
+      audio.removeEventListener("ended", handleSongChange);
     };
   }, [currentSong, isPlaying]);
 
@@ -85,11 +92,23 @@ const PlayMusic = () => {
       <main className="h-full flex justify-between items-center">
         <section className="flex items-center space-x-3 ml-4 ">
           <div className="">
-            <img src="https://picsum.photos/64/64" className="rounded" alt="" />
+            {isPlaying ? (
+              <img
+                src={currentSong?.image}
+                className="w-16 h-16 rounded-full animate-spin-slow"
+                alt=""
+              />
+            ) : (
+              <img
+                src="https://picsum.photos/64/64"
+                className="rounded-full"
+                alt=""
+              />
+            )}
           </div>
           <div className="mx-4">
-            <h3 className="text-sm">{currentSong.name}</h3>
-            <p className="text-[12px] text-gray-color">{currentSong.artis}</p>
+            <h3 className="text-sm">{currentSong?.name}</h3>
+            <p className="text-[12px] text-gray-color">{currentSong?.artis}</p>
           </div>
           <div className="space-x-4 mx-4">
             <i className="fa-regular fa-heart"></i>
@@ -124,7 +143,7 @@ const PlayMusic = () => {
               className="w-full"
               onChange={handleProgressChange}
             />
-            <audio ref={audioRef} src={currentSong.path}></audio>
+            <audio ref={audioRef} src={currentSong?.path}></audio>
             <span>{formatTime(duration)}</span>
           </div>
         </section>

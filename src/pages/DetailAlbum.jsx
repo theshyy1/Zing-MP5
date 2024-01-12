@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { albumsRecomended } from "../data";
 import ButtonIcon from "../components/button-icon";
-import SongAlbumItem from "../components/album-recomended/song-item";
+import SongAlbumItem from "../components/HintAlbums/album-recomended/song-item";
 
 const DetailAlbum = () => {
   const { id } = useParams();

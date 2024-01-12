@@ -96,7 +96,7 @@ const PlayMusic = () => {
 
   const nextSong = () => {
     setCurrentIndex((p) => p + 1);
-    if (currentIndex >= listSongs.length) {
+    if (currentIndex >= listSongs.length - 1) {
       setCurrentIndex(0);
     }
   };

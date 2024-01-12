@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { addToStack, getSong } from "../../store/musicSlice";
+import { addToStack, getSong } from "../../../store/musicSlice";
 
 const SongRecomnended = ({ song: { name, artis, avatar, id, path } }) => {
   const dispatch = useDispatch();

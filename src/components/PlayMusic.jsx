@@ -24,10 +24,13 @@ const PlayMusic = () => {
         setCurrentIndex(index);
       }
     }
-  }, []);
+  }, [music]);
+
   useEffect(() => {
-    setCurrentSong(listSongs[currentIndex]);
     const audio = audioRef.current;
+    setCurrentSong(listSongs[currentIndex]);
+    setPlaying(true);
+    audio.autoplay = true;
 
     const handleTimeUpdate = (e) => {
       if (audio.duration) {

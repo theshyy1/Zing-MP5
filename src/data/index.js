@@ -50,14 +50,14 @@ export const songsRecomended = [
     id: 1,
     name: "Ngày xưa em đến",
     artis: "Anh Khang",
-    avatar: "https://picsum.photos/130/130",
+    avatar: "https://picsum.photos/64/64",
     path: ngayxuaemden,
   },
   {
     id: 2,
     name: "Gõ cửa trái tim",
     artis: "Quang Lê, Mai Thiên Vân",
-    avatar: "https://picsum.photos/130/131",
+    avatar: "https://picsum.photos/64/63",
     path: gocuatraitim,
   },
   {

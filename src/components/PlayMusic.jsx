@@ -12,13 +12,21 @@ const PlayMusic = () => {
   const [isMuted, setMuted] = useState(false);
   const [isRepeat, setRepeat] = useState(false);
 
-  const [index, setIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [currentSong, setCurrentSong] = useState({});
-  // const listSongs = useSelector((state) => state.music.stackSongs);
+  const listSongs = useSelector((state) => state.music.stackSongs);
   const music = useSelector((state) => state.music.currentSong);
 
   useEffect(() => {
-    setCurrentSong(music);
+    if (music) {
+      const index = listSongs.findIndex((item) => item.id === music.id);
+      if (index !== -1) {
+        setCurrentIndex(index);
+      }
+    }
+  }, []);
+  useEffect(() => {
+    setCurrentSong(listSongs[currentIndex]);
     const audio = audioRef.current;
 
     const handleTimeUpdate = (e) => {
@@ -46,7 +54,7 @@ const PlayMusic = () => {
       audio.removeEventListener("timeupdate", handleTimeUpdate);
       audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
     };
-  }, [currentSong, isPlaying, music, index]);
+  }, [currentIndex]);
 
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
@@ -72,9 +80,22 @@ const PlayMusic = () => {
     setProgress(newProgress);
   };
 
+  const previousSong = () => {
+    setCurrentIndex((p) => p - 1);
+    if (currentIndex === 0) {
+      setCurrentIndex(listSongs.length - 1);
+    }
+  };
+
+  const nextSong = () => {
+    setCurrentIndex((p) => p + 1);
+    if (currentIndex >= listSongs.length) {
+      setCurrentIndex(0);
+    }
+  };
+
   const handleRepeat = () => {
     const audio = audioRef.current;
-
     audio.loop === true ? (audio.loop = false) : (audio.loop = true);
     setRepeat(!isRepeat);
   };
@@ -97,18 +118,18 @@ const PlayMusic = () => {
   return (
     <div className="w-full mt-[100px] h-[90px] fixed bottom-0 left-0 bg-[#130c1c] text-white-color z-20">
       <main className="h-full flex justify-between items-center">
-        <section className="flex items-center space-x-3 ml-4 ">
+        <section className="flex items-center space-x-3 ml-4 w-[400px]">
           <div className="">
             {isPlaying ? (
               <img
-                src={currentSong?.image}
+                src={currentSong?.avatar}
                 className="w-16 h-16 rounded-full animate-spin-slow"
                 alt=""
               />
             ) : (
               <img
-                src="https://picsum.photos/64/64"
-                className="rounded-full"
+                src={currentSong?.avatar}
+                className="w-16 h-16 rounded-full"
                 alt=""
               />
             )}
@@ -125,12 +146,15 @@ const PlayMusic = () => {
         <section className="">
           <div className="flex justify-around items-center">
             <i className="fa-solid fa-shuffle"></i>
-            <span onClick={() => setIndex((p) => p - 1)}>
+            <span
+              className="border-white-color hover:opacity-60 cursor-pointer w-6 h-6 block"
+              onClick={previousSong}
+            >
               <i className="fa-solid fa-backward-step"></i>
             </span>
             <span
               onClick={handlePlay}
-              className="text-xl flex items-center justify-center h-10 w-10 rounded-full border-[1px] border-white-color hover:opacity-60"
+              className="text-xl flex items-center justify-center h-10 w-10 rounded-full border-[1px] border-white-color hover:opacity-60 cursor-pointer"
             >
               {isPlaying ? (
                 <i className="fa-solid fa-pause"></i>
@@ -138,10 +162,13 @@ const PlayMusic = () => {
                 <i className="fa-solid fa-play"></i>
               )}
             </span>
-            <span onClick={() => setIndex((p) => p + 1)}>
-              <i className="fa-solid fa-forward-step"></i>
+            <span
+              className="border-white-color hover:opacity-60 cursor-pointer w-6 h-6 block"
+              onClick={nextSong}
+            >
+              <i className="fa-solid fa-forward-step "></i>
             </span>
-            <span>
+            <span className="border-white-color hover:opacity-60 cursor-pointer">
               {isRepeat ? (
                 <i
                   className="fa-solid fa-repeat text-red-600"
@@ -168,7 +195,10 @@ const PlayMusic = () => {
           </div>
         </section>
         <section className="flex items-center space-x-3 mr-4">
-          <span className="hover:opacity-60 w-5" onClick={toggleMute}>
+          <span
+            className="hover:opacity-60 cursor-pointer w-5"
+            onClick={toggleMute}
+          >
             {isMuted === true || volume <= 0 ? (
               <i className="fa-solid fa-volume-xmark"></i>
             ) : volume > 0.5 ? (

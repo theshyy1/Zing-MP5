@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { shuffleOff, shuffleStack } from "../store/musicSlice";
 
 const PlayMusic = () => {
   const audioRef = useRef(null);
@@ -11,13 +12,16 @@ const PlayMusic = () => {
   const [duration, setDuration] = useState(0);
   const [isMuted, setMuted] = useState(false);
   const [isRepeat, setRepeat] = useState(false);
+  const [isShuffle, setShuffle] = useState(false);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentSong, setCurrentSong] = useState({});
+  const dispatch = useDispatch();
   const listSongs = useSelector((state) => state.music.stackSongs);
   const music = useSelector((state) => state.music.currentSong);
 
   useEffect(() => {
+    console.log(listSongs);
     if (music) {
       const index = listSongs.findIndex((item) => item.id === music.id);
       if (index !== -1) {
@@ -97,6 +101,16 @@ const PlayMusic = () => {
     }
   };
 
+  const handleShuffle = () => {
+    if (!isShuffle) {
+      setShuffle(true);
+      dispatch(shuffleStack());
+    } else {
+      setShuffle(false);
+      dispatch(shuffleOff());
+    }
+  };
+
   const handleRepeat = () => {
     const audio = audioRef.current;
     audio.loop === true ? (audio.loop = false) : (audio.loop = true);
@@ -148,8 +162,12 @@ const PlayMusic = () => {
         </section>
         <section className="">
           <div className="flex justify-around items-center">
-            <span>
-              <i className="fa-solid fa-shuffle"></i>
+            <span onClick={handleShuffle}>
+              {isShuffle ? (
+                <i className="fa-solid fa-shuffle text-red-600"></i>
+              ) : (
+                <i className="fa-solid fa-shuffle"></i>
+              )}
             </span>
             <span
               className="border-white-color hover:opacity-60 cursor-pointer w-6 h-6 block"

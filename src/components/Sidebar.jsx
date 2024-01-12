@@ -1,11 +1,14 @@
 import React from "react";
 import SideBarMenu from "./sidebar-menu";
 import ButtonIcon from "./button-icon";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
+  const music = useSelector((state) => state.music.currentSong);
+
   return (
     <>
-      <div className="bg-purple-light min-h-[100vh]">
+      <div className="relative w-full h-full bg-purple-light">
         <div className="p-5">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -53,10 +56,14 @@ const Sidebar = () => {
             </g>
           </svg>
         </div>
-        <div className="border-b-[1px] border-gray-color mx-1 pb-3">
+        <div className="border-b-[1px] border-gray-color mx-1">
           <SideBarMenu />
         </div>
-        <div className="mx-1 h-[300px] pt-3 overflow-y-scroll overflow-x-hidden">
+        <div
+          className={`w-full mx-1 ${
+            music ? "h-[245px]" : "h-[334px]"
+          }  overflow-y-auto`}
+        >
           <SideBarMenu />
           <div className="m-4">
             <img src="https://static-zmp3.zmdcdn.me/images/best-of-2023/promote.png" />
@@ -70,8 +77,7 @@ const Sidebar = () => {
             </button>
           </div>
         </div>
-
-        <div className="fixed bottom-[90px] left-0 mt-[100px] bg-purple-bold w-[237px]">
+        <div className="absolute w-full bg-purple-bold">
           <ButtonIcon text="Tạo playlist mới">
             <i className="fa-solid fa-plus"></i>
           </ButtonIcon>

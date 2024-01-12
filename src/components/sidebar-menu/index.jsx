@@ -9,6 +9,7 @@ const SideBarMenu = () => {
         <Nav text="#zingchart" icon={"fa-regular fa-chart-bar"} />
         <Nav text="Radio" icon={"fa-solid fa-music"} />
         <Nav text="Thư viện" icon={"fa-regular fa-file-audio"} />
+        <Nav text="#zingchart" icon={"fa-regular fa-chart-bar"} />
       </ul>
     </>
   );

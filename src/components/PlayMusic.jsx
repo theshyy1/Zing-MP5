@@ -1,10 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { shuffleOff, shuffleStack } from "../store/musicSlice";
+import {
+  setCurrentSongNull,
+  shuffleOff,
+  shuffleStack,
+} from "../store/musicSlice";
+import ButtonPlay from "./button-play";
 
 const PlayMusic = () => {
   const audioRef = useRef(null);
   const inputAudioRef = useRef(null);
+  const btnExit = useRef(null);
+  const dispatch = useDispatch();
+
   const [isPlaying, setPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [volume, setVolume] = useState(0.5);
@@ -13,15 +21,12 @@ const PlayMusic = () => {
   const [isMuted, setMuted] = useState(false);
   const [isRepeat, setRepeat] = useState(false);
   const [isShuffle, setShuffle] = useState(false);
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentSong, setCurrentSong] = useState({});
-  const dispatch = useDispatch();
   const listSongs = useSelector((state) => state.music.stackSongs);
   const music = useSelector((state) => state.music.currentSong);
 
   useEffect(() => {
-    console.log(listSongs);
     if (music) {
       const index = listSongs.findIndex((item) => item.id === music.id);
       if (index !== -1) {
@@ -41,6 +46,8 @@ const PlayMusic = () => {
         const newProgress = (audio.currentTime / audio.duration) * 100;
         if (newProgress === 100) {
           setPlaying(false);
+          setCurrentIndex(currentIndex + 1);
+          setCurrentSong(listSongs[currentIndex]);
         }
         setProgress(newProgress);
         setCurrentTime(audio.currentTime);
@@ -61,7 +68,7 @@ const PlayMusic = () => {
       audio.removeEventListener("timeupdate", handleTimeUpdate);
       audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
     };
-  }, [currentIndex]);
+  }, [currentIndex, music]);
 
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
@@ -132,8 +139,31 @@ const PlayMusic = () => {
     setMuted(!isMuted);
   };
 
+  const handleMouseEnter = () => {
+    btnExit.current.style.display = "block";
+  };
+
+  const handleMouseLeave = () => {
+    btnExit.current.style.display = "none";
+  };
+
+  const handleExit = () => {
+    setPlaying(false);
+    setCurrentSong(null);
+    dispatch(setCurrentSongNull());
+  };
+
   return (
-    <div className="w-full mt-[100px] h-[90px] fixed bottom-0 left-0 bg-[#130c1c] text-white-color z-20">
+    <div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="w-full mt-[100px] h-[90px] fixed bottom-0 left-0 bg-[#130c1c] text-white-color z-20"
+    >
+      <div ref={btnExit} className="hidden absolute top-[-15%] right-[2%]">
+        <ButtonPlay textNode={"Thoát phát nhạc"}>
+          <i onClick={handleExit} className="fa-solid fa-xmark"></i>
+        </ButtonPlay>
+      </div>
       <main className="h-full flex justify-between items-center">
         <section className="flex items-center space-x-3 ml-4 w-[400px]">
           <div className="">
@@ -161,23 +191,24 @@ const PlayMusic = () => {
           </div>
         </section>
         <section className="">
-          <div className="flex justify-around items-center">
+          <div className="flex justify-center space-x-6 items-center">
             <span onClick={handleShuffle}>
-              {isShuffle ? (
-                <i className="fa-solid fa-shuffle text-red-600"></i>
-              ) : (
-                <i className="fa-solid fa-shuffle"></i>
-              )}
+              <ButtonPlay textNode={"Bật phát ngẫu nhiên"}>
+                {isShuffle ? (
+                  <i className="fa-solid fa-shuffle text-red-600"></i>
+                ) : (
+                  <i className="fa-solid fa-shuffle"></i>
+                )}
+              </ButtonPlay>
             </span>
-            <span
-              className="border-white-color hover:opacity-60 cursor-pointer w-6 h-6 block"
-              onClick={previousSong}
-            >
-              <i className="fa-solid fa-backward-step"></i>
+            <span onClick={previousSong}>
+              <ButtonPlay>
+                <i className="fa-solid fa-backward-step"></i>
+              </ButtonPlay>
             </span>
             <span
               onClick={handlePlay}
-              className="text-xl flex items-center justify-center h-10 w-10 rounded-full border-[1px] border-white-color hover:opacity-60 cursor-pointer"
+              className="text-xl flex items-center justify-center h-10 w-10 rounded-full border-[1px] border-white-color hover:text-[#9b4de0] hover:border-[#9b4de0] cursor-pointer"
             >
               {isPlaying ? (
                 <i className="fa-solid fa-pause"></i>
@@ -185,25 +216,26 @@ const PlayMusic = () => {
                 <i className="fa-solid fa-play"></i>
               )}
             </span>
-            <span
-              className="border-white-color hover:opacity-60 cursor-pointer w-6 h-6 block"
-              onClick={nextSong}
-            >
-              <i className="fa-solid fa-forward-step "></i>
+            <span onClick={nextSong}>
+              <ButtonPlay>
+                <i className="fa-solid fa-forward-step"></i>
+              </ButtonPlay>
             </span>
-            <span className="border-white-color hover:opacity-60 cursor-pointer">
-              {isRepeat ? (
-                <i
-                  className="fa-solid fa-repeat text-red-600"
-                  onClick={handleRepeat}
-                ></i>
-              ) : (
-                <i className="fa-solid fa-repeat" onClick={handleRepeat}></i>
-              )}
+            <span className="border-white-color cursor-pointer">
+              <ButtonPlay textNode={"Bật phát lại tất cả"}>
+                {isRepeat ? (
+                  <i
+                    className="fa-solid fa-repeat text-red-600"
+                    onClick={handleRepeat}
+                  ></i>
+                ) : (
+                  <i className="fa-solid fa-repeat" onClick={handleRepeat}></i>
+                )}
+              </ButtonPlay>
             </span>
           </div>
           <div className="mt-2 flex items-between space-x-3 w-[500px]">
-            <span>{formatTime(currentTime)}</span>
+            <span className="text-[12px]">{formatTime(currentTime)}</span>
             <input
               ref={inputAudioRef}
               type="range"
@@ -214,21 +246,20 @@ const PlayMusic = () => {
               onChange={handleProgressChange}
             />
             <audio ref={audioRef} src={currentSong?.path}></audio>
-            <span>{formatTime(duration)}</span>
+            <span className="text-[12px]">{formatTime(duration)}</span>
           </div>
         </section>
-        <section className="flex items-center space-x-3 mr-4">
-          <span
-            className="hover:opacity-60 cursor-pointer w-5"
-            onClick={toggleMute}
-          >
-            {isMuted === true || volume <= 0 ? (
-              <i className="fa-solid fa-volume-xmark"></i>
-            ) : volume > 0.5 ? (
-              <i className="fa-solid fa-volume-high"></i>
-            ) : (
-              <i className="fa-solid fa-volume-low"></i>
-            )}
+        <section className="flex items-center space-x-5 mr-4">
+          <span className="w-5" onClick={toggleMute}>
+            <ButtonPlay>
+              {isMuted === true || volume <= 0 ? (
+                <i className="fa-solid fa-volume-xmark"></i>
+              ) : volume > 0.5 ? (
+                <i className="fa-solid fa-volume-high"></i>
+              ) : (
+                <i className="fa-solid fa-volume-low"></i>
+              )}
+            </ButtonPlay>
           </span>
           <input
             type="range"

@@ -24,10 +24,18 @@ export const musicSlice = createSlice({
       const newSongs = [...songsRecomended];
       state.stackSongs = newSongs;
     },
+    setCurrentSongNull: (state) => {
+      state.currentSong = null;
+    },
   },
 });
 
-export const { getSong, addToStack, shuffleStack, shuffleOff } =
-  musicSlice.actions;
+export const {
+  getSong,
+  addToStack,
+  shuffleStack,
+  shuffleOff,
+  setCurrentSongNull,
+} = musicSlice.actions;
 
 export default musicSlice.reducer;

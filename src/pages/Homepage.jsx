@@ -5,10 +5,12 @@ import RecomendedSongs from "../components/RecomendedSongs";
 import NewestReleaseSongs from "../components/NewestReleaseSongs";
 import HintAlbums from "../components/HintAlbums";
 import ImageItem from "../components/imageItem";
+import { useSelector } from "react-redux";
 
 const Homepage = () => {
+  const music = useSelector((state) => state.music.currentSong);
   return (
-    <div>
+    <div className={`${music && "pb-20"}`}>
       <div className="grid grid-cols-3 gap-5 py-8">
         {imgList.map((img, index) => (
           <ImageItem img={img} key={index} />

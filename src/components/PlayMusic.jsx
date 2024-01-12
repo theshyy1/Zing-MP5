@@ -148,7 +148,9 @@ const PlayMusic = () => {
         </section>
         <section className="">
           <div className="flex justify-around items-center">
-            <i className="fa-solid fa-shuffle"></i>
+            <span>
+              <i className="fa-solid fa-shuffle"></i>
+            </span>
             <span
               className="border-white-color hover:opacity-60 cursor-pointer w-6 h-6 block"
               onClick={previousSong}

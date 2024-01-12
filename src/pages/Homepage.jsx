@@ -1,7 +1,4 @@
 import React from "react";
-import img1 from "../assets/Image/img1.jpg";
-import img2 from "../assets/Image/img2.jpg";
-import img3 from "../assets/Image/img3.jpg";
 import ImageItem from "../components/imageItem";
 import AlbumItem from "../components/album-item";
 import SongRecomnended from "../components/song-recomend";
@@ -13,8 +10,7 @@ import {
   songsLastRelease,
   songsRecomended,
 } from "../data";
-
-const imgList = [img1, img2, img3];
+import { listCovers as imgList } from "../ultils/exports-img";
 
 const Homepage = () => {
   return (

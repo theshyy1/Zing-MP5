@@ -16,9 +16,18 @@ export const musicSlice = createSlice({
     addToStack: (state, action) => {
       state.stackSongs.push(action.payload);
     },
+    shuffleStack: (state) => {
+      const randomArray = () => Math.random() - 0.5;
+      state.stackSongs.sort(randomArray);
+    },
+    shuffleOff: (state) => {
+      const newSongs = [...songsRecomended];
+      state.stackSongs = newSongs;
+    },
   },
 });
 
-export const { getSong, addToStack } = musicSlice.actions;
+export const { getSong, addToStack, shuffleStack, shuffleOff } =
+  musicSlice.actions;
 
 export default musicSlice.reducer;

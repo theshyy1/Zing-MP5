@@ -1,5 +1,11 @@
-import gocuatraitim from "../assets/Music/Go-Cua-Trai-Tim-Mai-Thien-Van-Quang-Le.mp3";
-import ngayxuaemden from "../assets/Music/Ngay-Xua-Em-Den-Anh-Khang.mp3";
+import {
+  gocuatraitim,
+  ngayxuaemden,
+  emcuangayhomqua,
+  tinhthamduyenque,
+  emcuangayhomquaImg,
+  tinhthamduyenqueImg,
+} from "../ultils/exports";
 
 export const albumRecently = [
   {
@@ -44,33 +50,35 @@ export const songsRecomended = [
     id: 1,
     name: "Ngày xưa em đến",
     artis: "Anh Khang",
-    avatar: "https://picsum.photos/130/130",
+    avatar: "https://picsum.photos/64/64",
     path: ngayxuaemden,
   },
   {
     id: 2,
     name: "Gõ cửa trái tim",
     artis: "Quang Lê, Mai Thiên Vân",
-    avatar: "https://picsum.photos/130/131",
+    avatar: "https://picsum.photos/64/63",
     path: gocuatraitim,
+  },
+  {
+    id: 4,
+    name: "Tình thắm duyên quê",
+    artis: "Nhiều ca sĩ",
+    avatar: tinhthamduyenqueImg,
+    path: tinhthamduyenque,
+  },
+  {
+    id: 5,
+    name: "Em của ngày hôm qua ",
+    artis: "Sơn Tùng M-tp",
+    avatar: emcuangayhomquaImg,
+    path: emcuangayhomqua,
   },
   {
     id: 3,
     name: "Tại vì anh",
     artis: "Yanbi, T-Akayz",
     avatar: "https://picsum.photos/130/132",
-  },
-  {
-    id: 4,
-    name: "Khuê Mộc Lan",
-    artis: "Hương Ly, Zombie",
-    avatar: "https://picsum.photos/131/130",
-  },
-  {
-    id: 5,
-    name: "K (Part 2)",
-    artis: "Justatee",
-    avatar: "https://picsum.photos/130/129",
   },
   {
     id: 6,

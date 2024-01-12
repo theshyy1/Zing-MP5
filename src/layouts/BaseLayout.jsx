@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 const BaseLayout = () => {
   const music = useSelector((state) => state.music.currentSong);
   return (
-    <div className="flex fixed top-0 left-0 right-0 bottom-0">
+    <div className=" font-inter flex fixed top-0 left-0 right-0 bottom-0">
       <div className="w-[237px] h-full">
         <Sidebar />
         {music !== null && <PlayMusic />}

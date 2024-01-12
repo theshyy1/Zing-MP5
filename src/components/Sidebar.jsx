@@ -1,5 +1,5 @@
-import React from "react";
-import SideBarMenu from "./sidebar-menu";
+import React, { Fragment } from "react";
+import SideBarMenu from "./SideBarMenu";
 import ButtonIcon from "./button-icon";
 import { useSelector } from "react-redux";
 
@@ -7,7 +7,7 @@ const Sidebar = () => {
   const music = useSelector((state) => state.music.currentSong);
 
   return (
-    <>
+    <Fragment>
       <div className="relative w-full h-full bg-purple-light">
         <div className="p-5">
           <svg
@@ -61,7 +61,7 @@ const Sidebar = () => {
         </div>
         <div
           className={`w-full mx-1 ${
-            music ? "h-[245px]" : "h-[334px]"
+            music ? "h-[265px]" : "h-[355px]"
           }  overflow-y-auto`}
         >
           <SideBarMenu />
@@ -83,7 +83,7 @@ const Sidebar = () => {
           </ButtonIcon>
         </div>
       </div>
-    </>
+    </Fragment>
   );
 };
 

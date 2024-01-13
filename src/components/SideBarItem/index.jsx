@@ -1,6 +1,17 @@
-const SideBarItem = ({ text, icon }) => {
+import { Link } from "react-router-dom";
+
+const SideBarItem = ({
+  category: { text, icon, isChoose, path },
+  onHandleClick,
+}) => {
   return (
-    <li className="relative flex items-center text-[#b5b4b8] hover:text-white-color py-3 group">
+    // <Link to={`${path}`}>
+    <li
+      onClick={() => onHandleClick(text)}
+      className={`relative flex items-center px-7 text-[#b5b4b8] ${
+        isChoose && "bg-[#3a3243] text-white-color border-l-2 border-[#9b4de0]"
+      } hover:text-white-color py-3 group`}
+    >
       <span className="mr-3">
         <i className={icon + " text-xl"}></i>
       </span>
@@ -9,6 +20,7 @@ const SideBarItem = ({ text, icon }) => {
         {text}
       </span>
     </li>
+    // </Link>
   );
 };
 

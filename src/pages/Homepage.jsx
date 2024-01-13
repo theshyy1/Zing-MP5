@@ -11,7 +11,7 @@ const Homepage = () => {
   const music = useSelector((state) => state.music.currentSong);
   return (
     <div className={`${music && "pb-20"}`}>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 py-8">
         {imgList.map((img, index) => (
           <ImageItem img={img} key={index} />
         ))}

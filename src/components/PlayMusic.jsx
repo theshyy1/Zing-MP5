@@ -165,7 +165,7 @@ const PlayMusic = () => {
         </ButtonPlay>
       </div>
       <main className="h-full flex items-center mx-8">
-        <section className="flex items-center space-x-4 w-[400px]">
+        <section className="flex items-center space-x-4 w-[400px] overflow-hidden">
           <div className="">
             {isPlaying ? (
               <img
@@ -185,12 +185,12 @@ const PlayMusic = () => {
             <h3 className="text-sm">{currentSong?.name}</h3>
             <p className="text-[12px] text-gray-color">{currentSong?.artis}</p>
           </div>
-          <div className="space-x-6 mx-4">
+          <div className="space-x-6 mx-4 lg:block sm:hidden">
             <i className="fa-regular fa-heart"></i>
             <i className="fa-solid fa-ellipsis"></i>
           </div>
         </section>
-        <section className="flex-1">
+        <section className="flex-1 max-w-full">
           <div className="flex justify-center space-x-6 items-center">
             <span onClick={handleShuffle}>
               <ButtonPlay textNode={"Bật phát ngẫu nhiên"}>
@@ -234,7 +234,7 @@ const PlayMusic = () => {
               </ButtonPlay>
             </span>
           </div>
-          <div className="flex justify-center mx-auto mt-2 space-x-3 w-[500px]">
+          <div className="flex justify-center mx-auto mt-2 space-x-3 max-w-[500px]">
             <span className="text-[12px]">{formatTime(currentTime)}</span>
             <input
               ref={inputAudioRef}
@@ -267,7 +267,7 @@ const PlayMusic = () => {
             min="0"
             max="1"
             step="0.01"
-            className="w-[120px] h-1"
+            className="w-[120px] h-1 hidden md:block"
             onChange={handleVolumeChange}
           />
         </section>

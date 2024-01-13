@@ -12,6 +12,7 @@ const App = () => {
         <Route path="/" element={<BaseLayout />}>
           <Route path="" element={<Homepage />} />
           <Route path="songs/:id" element={<DetailSong />} />
+          <Route path="khampha" element={<DetailSong />} />
           <Route path="albums/:id" element={<DetailAlbum />} />
         </Route>
       </Routes>

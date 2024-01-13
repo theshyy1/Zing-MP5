@@ -13,7 +13,7 @@ const BaseLayout = () => {
         <Sidebar />
         {music !== null && <PlayMusic />}
       </div>
-      <div className="flex-1  h-screen overflow-y-auto bg-purple-bold z-1">
+      <div className="flex-1 h-screen overflow-y-auto bg-purple-bold z-1">
         <div className="container">
           <Header />
           <Outlet />

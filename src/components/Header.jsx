@@ -18,7 +18,7 @@ const Header = () => {
           <input
             type="text"
             placeholder="Tìm kiếm bài hát, nghệ sĩ, lời bài hát..."
-            className=" bg-transparent text-sm text-white-color px-3 outline-none w-full"
+            className=" bg-transparent text-sm text-white-color px-3 outline-none max-w-full"
           />
         </div>
       </div>

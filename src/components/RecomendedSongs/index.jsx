@@ -11,7 +11,7 @@ const RecomendedSongs = () => {
           Gợi ý dành riêng cho bạn
         </h3>
       </div>
-      <div className="grid grid-cols-3 gap-2 h-[240px] overflow-auto">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-2 h-[240px] overflow-auto">
         {songsRecomended.map((song, index) => (
           <SongRecomnended song={song} key={index} />
         ))}

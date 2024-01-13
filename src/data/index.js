@@ -214,6 +214,7 @@ export const songsLastRelease = [
     artis: "Phương Thanh, Châu Dương...",
     time: "Hôm qua",
     avatar: "https://picsum.photos/130/130",
+    typeMusic: "Việt Nam",
   },
   {
     id: 2,
@@ -221,6 +222,7 @@ export const songsLastRelease = [
     artis: "AMEE, Phúc Du, ...",
     time: "Hôm qua",
     avatar: "https://picsum.photos/130/131",
+    typeMusic: "Quốc tế",
   },
   {
     id: 3,
@@ -228,6 +230,7 @@ export const songsLastRelease = [
     artis: "ITZY",
     time: "Hôm qua",
     avatar: "https://picsum.photos/130/132",
+    typeMusic: "Việt Nam",
   },
   {
     id: 4,
@@ -235,6 +238,7 @@ export const songsLastRelease = [
     artis: "Bùi Công Nam, Hiền Thục, ..",
     time: "Hôm qua",
     avatar: "https://picsum.photos/131/130",
+    typeMusic: "Quốc tế",
   },
   {
     id: 5,
@@ -242,6 +246,7 @@ export const songsLastRelease = [
     artis: "2 gày trước",
     time: "Justatee",
     avatar: "https://picsum.photos/130/129",
+    typeMusic: "Quốc tế",
   },
   {
     id: 6,
@@ -249,6 +254,7 @@ export const songsLastRelease = [
     artis: "Khổng Tú Quỳnh, Mlee, ..",
     time: "3 ngày trước",
     avatar: "https://picsum.photos/129/130",
+    typeMusic: "Việt Nam",
   },
   {
     id: 7,
@@ -256,20 +262,23 @@ export const songsLastRelease = [
     artis: "Hồng Nhung, Mỹ Linh...",
     time: "3 ngày trước",
     avatar: "https://picsum.photos/129/129",
+    typeMusic: "Việt Nam",
   },
   {
     id: 8,
     name: "Mashup: Hoa Nở Không Màu &",
     artis: "Thu Hương, Huyền Baby, ...",
     time: "Trung quân idol",
-    avatar: "https://picsum.photos/130/130",
+    avatar: "https://picsum.photos/130/132",
+    typeMusic: "Việt Nam",
   },
   {
     id: 9,
     name: "Dấu Chân Đầu Tiên",
     artis: "Bùi Công Nam, Double2T",
     time: "Tuần trước",
-    avatar: "https://picsum.photos/130/131",
+    avatar: "https://picsum.photos/128/131",
+    typeMusic: "Quốc tế",
   },
   {
     id: 10,
@@ -277,6 +286,7 @@ export const songsLastRelease = [
     artis: "AdreeRightHand, Rhyder, ...",
     time: "3 ngày trước",
     avatar: "https://picsum.photos/130/132",
+    typeMusic: "Việt Nam",
   },
   {
     id: 11,
@@ -284,5 +294,6 @@ export const songsLastRelease = [
     artis: "Đức Phúc",
     time: "4 ngày trước",
     avatar: "https://picsum.photos/131/130",
+    typeMusic: "Việt Nam",
   },
 ];

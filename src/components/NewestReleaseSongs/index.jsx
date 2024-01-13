@@ -20,7 +20,7 @@ const NewestReleaseSongs = () => {
           <i className="fa-solid fa-chevron-right"></i>
         </p>
       </div>
-      <div className="grid grid-cols-3 gap-2 h-[240px] overflow-hidden">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-2 h-[240px] overflow-hidden">
         {songsLastRelease.map((song, index) => (
           <LastRelease song={song} key={index} />
         ))}

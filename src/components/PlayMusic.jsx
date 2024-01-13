@@ -164,8 +164,8 @@ const PlayMusic = () => {
           <i onClick={handleExit} className="fa-solid fa-xmark"></i>
         </ButtonPlay>
       </div>
-      <main className="h-full flex justify-between items-center">
-        <section className="flex items-center space-x-3 ml-4 w-[400px]">
+      <main className="h-full flex items-center mx-8">
+        <section className="flex items-center space-x-4 w-[400px]">
           <div className="">
             {isPlaying ? (
               <img
@@ -181,16 +181,16 @@ const PlayMusic = () => {
               />
             )}
           </div>
-          <div className="mx-4">
+          <div className="mx-6">
             <h3 className="text-sm">{currentSong?.name}</h3>
             <p className="text-[12px] text-gray-color">{currentSong?.artis}</p>
           </div>
-          <div className="space-x-4 mx-4">
+          <div className="space-x-6 mx-4">
             <i className="fa-regular fa-heart"></i>
             <i className="fa-solid fa-ellipsis"></i>
           </div>
         </section>
-        <section className="">
+        <section className="flex-1">
           <div className="flex justify-center space-x-6 items-center">
             <span onClick={handleShuffle}>
               <ButtonPlay textNode={"Bật phát ngẫu nhiên"}>
@@ -234,7 +234,7 @@ const PlayMusic = () => {
               </ButtonPlay>
             </span>
           </div>
-          <div className="mt-2 flex items-between space-x-3 w-[500px]">
+          <div className="flex justify-center mx-auto mt-2 space-x-3 w-[500px]">
             <span className="text-[12px]">{formatTime(currentTime)}</span>
             <input
               ref={inputAudioRef}
@@ -242,14 +242,14 @@ const PlayMusic = () => {
               value={progress}
               min="0"
               max="100"
-              className="w-full"
+              className="w-full animate-pulse"
               onChange={handleProgressChange}
             />
             <audio ref={audioRef} src={currentSong?.path}></audio>
             <span className="text-[12px]">{formatTime(duration)}</span>
           </div>
         </section>
-        <section className="flex items-center space-x-5 mr-4">
+        <section className="w-[400px] flex items-center justify-end space-x-5">
           <span className="w-5" onClick={toggleMute}>
             <ButtonPlay>
               {isMuted === true || volume <= 0 ? (
@@ -267,6 +267,7 @@ const PlayMusic = () => {
             min="0"
             max="1"
             step="0.01"
+            className="w-[120px] h-1"
             onChange={handleVolumeChange}
           />
         </section>

@@ -6,16 +6,26 @@ import NewestReleaseSongs from "../components/NewestReleaseSongs";
 import HintAlbums from "../components/HintAlbums";
 import ImageItem from "../components/imageItem";
 import { useSelector } from "react-redux";
+import Slider from "react-slick";
 
 const Homepage = () => {
   const music = useSelector((state) => state.music.currentSong);
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+  };
   return (
     <div className={`${music && "pb-20"}`}>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 py-8">
+      <Slider
+        className="w-full lg:flex justify-between grid md:grid-cols-2 lg:grid-cols-3 gap-5 py-8"
+        {...settings}
+      >
         {imgList.map((img, index) => (
           <ImageItem img={img} key={index} />
         ))}
-      </div>
+      </Slider>
       <div className="overflow-hidden">
         <RecentlySongs />
       </div>

@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import { albumsRecomended } from "../../data";
 import AlbumRecomended from "./album-recomended";
-
 const HintAlbums = () => {
   return (
     <Fragment>

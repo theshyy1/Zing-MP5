@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { albumsRecomended } from "../data";
 import ButtonIcon from "../components/button-icon";
-import SongAlbumItem from "../components/album-recomended/song-item";
+import SongAlbumItem from "../components/HintAlbums/album-recomended/song-item";
 
 const DetailAlbum = () => {
   const { id } = useParams();
@@ -12,15 +12,15 @@ const DetailAlbum = () => {
       <aside className="w-[300px]">
         <div className="flex flex-col items-center text-white-color text-center">
           <img
-            src={currentAlbum.avatar}
+            src={currentAlbum?.avatar}
             className="w-[300px] h-[300px] rounded-lg"
             alt=""
           />
           <article className="mt-2">
-            <h3 className="text-xl">{currentAlbum.title}</h3>
+            <h3 className="text-xl">{currentAlbum?.title}</h3>
             <div className="text-[12px] text-gray-color space-y-1">
               <span>Cập nhật: 17/10/2023</span>
-              <p>{currentAlbum.artis}</p>
+              <p>{currentAlbum?.artis}</p>
               <p>26k yêu thích</p>
             </div>
             <div className="mt-2">

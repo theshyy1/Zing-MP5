@@ -2,18 +2,19 @@ import React from "react";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import { Outlet } from "react-router-dom";
-import Playground from "../components/Playground";
+import PlayMusic from "../components/PlayMusic";
+import { useSelector } from "react-redux";
 
 const BaseLayout = () => {
-  const [isPlaying, setPlaying] = React.useState(false);
-  console.log(isPlaying);
+  const music = useSelector((state) => state.music.currentSong);
   return (
-    <div className="flex w-full h-full relative">
-      <div className="w-1/6">
-        <Sidebar isPlaying={isPlaying} />
+    <div className=" font-inter flex fixed top-0 left-0 right-0 bottom-0">
+      <div className="lg:w-[240px] w-[70px] h-full">
+        <Sidebar />
+        {music !== null && <PlayMusic />}
       </div>
-      <div className="w-5/6 bg-purple-bold">
-        <div className="container h-screen overflow-auto">
+      <div className="flex-1  h-screen overflow-y-auto bg-purple-bold z-1">
+        <div className="container">
           <Header />
           <Outlet />
         </div>

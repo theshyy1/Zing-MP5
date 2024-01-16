@@ -31,6 +31,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react-dom", "npm:18.2.18"],\
           ["@vitejs/plugin-react", "virtual:04f397e6d877c3389e986e0b5d91a518ce75cb4b067ff645913d3781bf0a7f135311100392cfd9ab2bbe6353d66a49f37fe3f7001f8353432c3963a39e2b9014#npm:4.2.1"],\
           ["autoprefixer", "virtual:04f397e6d877c3389e986e0b5d91a518ce75cb4b067ff645913d3781bf0a7f135311100392cfd9ab2bbe6353d66a49f37fe3f7001f8353432c3963a39e2b9014#npm:10.4.16"],\
+          ["classnames", "npm:2.5.1"],\
           ["eslint", "npm:8.56.0"],\
           ["eslint-plugin-react", "virtual:04f397e6d877c3389e986e0b5d91a518ce75cb4b067ff645913d3781bf0a7f135311100392cfd9ab2bbe6353d66a49f37fe3f7001f8353432c3963a39e2b9014#npm:7.33.2"],\
           ["eslint-plugin-react-hooks", "virtual:04f397e6d877c3389e986e0b5d91a518ce75cb4b067ff645913d3781bf0a7f135311100392cfd9ab2bbe6353d66a49f37fe3f7001f8353432c3963a39e2b9014#npm:4.6.0"],\
@@ -3444,6 +3445,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react-dom", "npm:18.2.18"],\
           ["@vitejs/plugin-react", "virtual:04f397e6d877c3389e986e0b5d91a518ce75cb4b067ff645913d3781bf0a7f135311100392cfd9ab2bbe6353d66a49f37fe3f7001f8353432c3963a39e2b9014#npm:4.2.1"],\
           ["autoprefixer", "virtual:04f397e6d877c3389e986e0b5d91a518ce75cb4b067ff645913d3781bf0a7f135311100392cfd9ab2bbe6353d66a49f37fe3f7001f8353432c3963a39e2b9014#npm:10.4.16"],\
+          ["classnames", "npm:2.5.1"],\
           ["eslint", "npm:8.56.0"],\
           ["eslint-plugin-react", "virtual:04f397e6d877c3389e986e0b5d91a518ce75cb4b067ff645913d3781bf0a7f135311100392cfd9ab2bbe6353d66a49f37fe3f7001f8353432c3963a39e2b9014#npm:7.33.2"],\
           ["eslint-plugin-react-hooks", "virtual:04f397e6d877c3389e986e0b5d91a518ce75cb4b067ff645913d3781bf0a7f135311100392cfd9ab2bbe6353d66a49f37fe3f7001f8353432c3963a39e2b9014#npm:4.6.0"],\

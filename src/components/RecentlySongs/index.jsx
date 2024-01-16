@@ -7,8 +7,8 @@ const RecentlySongs = () => {
     <Fragment>
       <section className="mb-5 flex justify-between items-center">
         <h3 className="text-xl font-bold text-white-color">Gần Đây</h3>
-        <p className="text-gray-color space-x-2">
-          <span className=" cursor-pointer">Tất cả</span>
+        <p className="text-gray-color space-x-2 cursor-pointer">
+          <span>Tất cả</span>
           <i className="fa-solid fa-chevron-right"></i>
         </p>
       </section>

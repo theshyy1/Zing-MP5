@@ -11,7 +11,7 @@ const HintAlbums = () => {
       </div>
       <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-2 overflow-hidden">
         {albumsRecomended.map((al, index) => (
-          <AlbumRecomended album={al} key={index} />
+          <AlbumRecomended key={index} {...al} />
         ))}
       </div>
     </Fragment>

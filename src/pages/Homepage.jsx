@@ -26,7 +26,7 @@ const Homepage = () => {
           <ImageItem img={img} key={index} />
         ))}
       </Slider>
-      <div className="overflow-hidden">
+      <div className="overflow-hidden mt-5">
         <RecentlySongs />
       </div>
       <div className="mt-12">

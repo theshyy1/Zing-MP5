@@ -4,9 +4,9 @@ import RecentlySongs from "../components/RecentlySongs";
 import RecomendedSongs from "../components/RecomendedSongs";
 import NewestReleaseSongs from "../components/NewestReleaseSongs";
 import HintAlbums from "../components/HintAlbums";
+import ImageItem from "../components/ImageItem";
 import { useSelector } from "react-redux";
 import Slider from "react-slick";
-import ImageItem from "../components/ImageItem";
 
 const Homepage = () => {
   const music = useSelector((state) => state.music.currentSong);

@@ -19,7 +19,7 @@ const Homepage = () => {
   return (
     <div className={`${music && "pb-20"}`}>
       <Slider
-        className="w-full  justify-between md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 py-8"
+        className="w-full md:flex justify-between grid md:grid-cols-2 lg:grid-cols-3 gap-5 py-8"
         {...settings}
       >
         {imgList.map((img, index) => (

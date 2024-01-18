@@ -4,9 +4,9 @@ import RecentlySongs from "../components/RecentlySongs";
 import RecomendedSongs from "../components/RecomendedSongs";
 import NewestReleaseSongs from "../components/NewestReleaseSongs";
 import HintAlbums from "../components/HintAlbums";
-import ImageItem from "../components/imageItem";
 import { useSelector } from "react-redux";
 import Slider from "react-slick";
+import ImageItem from "../components/ImageItem";
 
 const Homepage = () => {
   const music = useSelector((state) => state.music.currentSong);
@@ -19,7 +19,7 @@ const Homepage = () => {
   return (
     <div className={`${music && "pb-20"}`}>
       <Slider
-        className="w-full lg:flex justify-between grid md:grid-cols-2 lg:grid-cols-3 gap-5 py-8"
+        className="w-full  justify-between md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 py-8"
         {...settings}
       >
         {imgList.map((img, index) => (

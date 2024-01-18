@@ -29,8 +29,8 @@ const NewestReleaseSongs = () => {
       <div className="mb-5">
         <h3 className="text-xl font-bold mb-4">Mới Phát Hành</h3>
       </div>
-      <div className="flex justify-between items-center mb-4">
-        <ul className="flex space-x-5">
+      <div className="flex  justify-between items-center mb-4">
+        <ul className="flex md:flex-row flex-col justify-start items-center space-y-3 md:space-x-5">
           {types.map((type) => (
             <OptionBtn type={type} onHandleClick={handleClick} key={type.id} />
           ))}

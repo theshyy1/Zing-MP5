@@ -3,9 +3,9 @@ import ButtonIcon from "./button-icon";
 
 const Header = () => {
   return (
-    <div className="flex justify-between items-center py-4">
-      <div className="flex justify-center space-x-5 items-center">
-        <div className="flex space-x-3">
+    <div className="flex justify-between items-center py-4 w-full">
+      <div className="flex justify-center space-x-5 items-center w-full">
+        <div className="hidden lg:flex space-x-3">
           <ButtonIcon>
             <i className="fa-solid fa-arrow-left"></i>
           </ButtonIcon>
@@ -13,7 +13,7 @@ const Header = () => {
             <i className="fa-solid fa-arrow-right"></i>
           </ButtonIcon>
         </div>
-        <div className="flex items-center text-white-color rounded-full bg-btn-color py-2 px-4 w-[400px]">
+        <div className="flex items-center text-white-color rounded-full bg-btn-color py-2 px-4 w-[600px]">
           <i className="fa-solid fa-magnifying-glass text-xl"></i>
           <input
             type="text"
@@ -22,7 +22,7 @@ const Header = () => {
           />
         </div>
       </div>
-      <div className="flex items-center space-x-5">
+      <div className="hidden md:flex items-center space-x-5">
         <div className="flex items-center justify-center py-3 bg-purple-light rounded-full w-[170px] text-[#9b4de0] text-sm font-bold space-x-2">
           <i className="fa-solid fa-download"></i>
           <span>Tải bản macOS</span>

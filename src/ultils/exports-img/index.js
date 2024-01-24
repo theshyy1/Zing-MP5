@@ -11,9 +11,9 @@ import xinMaRuocDauImg from "../../assets/Image/1660892246525_640.jpg";
 
 import img1 from "../../assets/Image/cover1.jpg";
 import img2 from "../../assets/Image/cover2.jpg";
-import img4 from "../../assets/Image/img3.jpg";
+// import img4 from "../../assets/Image/img3.jpg";
 import img3 from "../../assets/Image/cover3.jpg";
-const listCovers = [img1, img2, img3, img4];
+const listCovers = [img1, img2, img3];
 
 export {
   gheQuaImg,

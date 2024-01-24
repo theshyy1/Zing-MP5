@@ -22,7 +22,7 @@ const Header = () => {
           />
         </div>
       </div>
-      <div className="hidden md:flex items-center space-x-5">
+      <div className="hidden lg:flex items-center space-x-5">
         <div className="flex items-center justify-center py-3 bg-purple-light rounded-full w-[170px] text-[#9b4de0] text-sm font-bold space-x-2">
           <i className="fa-solid fa-download"></i>
           <span>Tải bản macOS</span>

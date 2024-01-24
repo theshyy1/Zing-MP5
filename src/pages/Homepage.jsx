@@ -1,12 +1,12 @@
 import React from "react";
 import { listCovers as imgList } from "../ultils/exports-img";
-// import ImageItem from "../components/ImageItem/index.jsx";
 import RecentlySongs from "../components/RecentlySongs";
 import RecomendedSongs from "../components/RecomendedSongs";
 import NewestReleaseSongs from "../components/NewestReleaseSongs";
 import HintAlbums from "../components/HintAlbums";
 import { useSelector } from "react-redux";
 import Slider from "react-slick";
+import ImageItem from "../components/imageItem";
 
 const Homepage = () => {
   const music = useSelector((state) => state.music.currentSong);
@@ -18,14 +18,11 @@ const Homepage = () => {
   };
   return (
     <div className={`${music && "pb-20"}`}>
-      {/* <Slider
-        className="w-full md:flex justify-between grid md:grid-cols-2 lg:grid-cols-3 gap-5 py-8"
-        {...settings}
-      >
-        {imgList.map((item) => (
-          <ImageItem img={item} key={item.id} />
+      <div className="w-full md:flex justify-between grid md:grid-cols-2 lg:grid-cols-3 gap-5 py-8">
+        {imgList.map((item, index) => (
+          <ImageItem img={item} key={index} />
         ))}
-      </Slider> */}
+      </div>
       <div className="overflow-hidden mt-5">
         <RecentlySongs />
       </div>

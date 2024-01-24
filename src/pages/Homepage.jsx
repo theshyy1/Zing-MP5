@@ -1,6 +1,6 @@
 import React from "react";
 import { listCovers as imgList } from "../ultils/exports-img";
-import ImageItem from "../components/ImageItem/index.jsx";
+// import ImageItem from "../components/ImageItem/index.jsx";
 import RecentlySongs from "../components/RecentlySongs";
 import RecomendedSongs from "../components/RecomendedSongs";
 import NewestReleaseSongs from "../components/NewestReleaseSongs";
@@ -18,14 +18,14 @@ const Homepage = () => {
   };
   return (
     <div className={`${music && "pb-20"}`}>
-      <Slider
+      {/* <Slider
         className="w-full md:flex justify-between grid md:grid-cols-2 lg:grid-cols-3 gap-5 py-8"
         {...settings}
       >
         {imgList.map((item) => (
           <ImageItem img={item} key={item.id} />
         ))}
-      </Slider>
+      </Slider> */}
       <div className="overflow-hidden mt-5">
         <RecentlySongs />
       </div>

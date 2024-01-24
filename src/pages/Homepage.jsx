@@ -1,6 +1,6 @@
 import React from "react";
 import { listCovers as imgList } from "../ultils/exports-img";
-import ImageItem from "../components/ImageItem";
+import ImageItem from "../components/ImageItem/index.jsx";
 import RecentlySongs from "../components/RecentlySongs";
 import RecomendedSongs from "../components/RecomendedSongs";
 import NewestReleaseSongs from "../components/NewestReleaseSongs";

@@ -1,10 +1,10 @@
 import React from "react";
 import { listCovers as imgList } from "../ultils/exports-img";
+import ImageItem from "../components/ImageItem";
 import RecentlySongs from "../components/RecentlySongs";
 import RecomendedSongs from "../components/RecomendedSongs";
 import NewestReleaseSongs from "../components/NewestReleaseSongs";
 import HintAlbums from "../components/HintAlbums";
-import ImageItem from "../components/ImageItem";
 import { useSelector } from "react-redux";
 import Slider from "react-slick";
 
@@ -22,8 +22,8 @@ const Homepage = () => {
         className="w-full md:flex justify-between grid md:grid-cols-2 lg:grid-cols-3 gap-5 py-8"
         {...settings}
       >
-        {imgList.map((img, index) => (
-          <ImageItem img={img} key={index} />
+        {imgList.map((item) => (
+          <ImageItem img={item} key={item.id} />
         ))}
       </Slider>
       <div className="overflow-hidden mt-5">
